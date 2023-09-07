@@ -1,0 +1,79 @@
+title: "DE6200"
+output: html_notebook
+---
+
+```{r, echo= false}
+#Data: number of ticks found on dogs sampled from a shelter
+tickdata <- c(0,0,0,0,1,0,6,0,3,3,5,22,0,0,3,33,4,2,1,23,7,2,4,6,78)
+hist(tickdata, breaks = 90)
+```
+
+# **EpiTriad**
+
+![EpiTriad](RStudio%20Images/EpiTriad.png)
+
+### The triangle relationship between the environment, pathogen, and host represents the core characteristics that make up a **disease**. When each trait reaches optimal conditions, the disease proliferates transmitting, infecting, and triggering the expression of mild to chronic symptoms etc. These traits are greatly influenced by additional factors that must be accounted for including the conditions of intermediate and primary host, evolutionary changes undergone by the pathogen, and climate change. By studying these relationships we can influence the system to minimize or eradicate disease expression.
+
+
+
+# **Measures of Disease Frequency Lab - Aug 30, 2023**
+
+![Prevalence Table](RStudio Images/ss_table.png){width=80%}
+
+
+# Question 1 
+
+Find the sample size necessary to detect a disease at or above 5% prevalence in a herd of 5000 deer. The desired level of confidence is 95%. 
+**Answer: At 5% prevalence minimum, a sample size of 59 deer is needed.**
+
+# Question 2 
+
+Using the hypergeometric distribution, compare the sample size requirements for the following scenarios:
+
+A) 95% confidence in detecting a disease at 1% prevalence in a large population.
+
+**Answer: 290 sample size**
+
+B) 99% confidence in detecting a disease at 2% prevalence in a large population.
+
+**Answer: 224 sample size**
+
+# Question 3
+You sample 300 deer from a high fenced facility that has a herd of 4000. None of the 300 have antibodies against Epizootic Hemorrhagic Disease. Based on this finding, you are 95% confident that the prevalence of exposure to EHD in this facility is ...
+
+**Answer: According to the chart, < 1% prevalence**
+
+# Question 4
+An outbreak of 'Lame disease' has been reported in wild turkey populations of Alabama. Turkeys from three counties were sampled for lameness (Lee, Chambers and Russell counties).
+
+```{r}
+#Data: number of turkeys with lame disease from different counties
+Leedata<- c(1,0,0,0,0,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,1,0,0,1,0,0,0,1,0,0,1,0,0,0,0,1,0,0,1,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,1,0,0,1,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0)
+
+Chambersdata<- c(1,0,0,0,0,0,0,1,0,0,0,0,0,1,1,1,0,0,0,0,1,0,0,1,0,0,0,1,0,0)
+
+Russelldata<- c(0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+
+```
+
+A) Analyze the sample data to determine prevalence of lameness in each county. Provide confidence interval for prevalence using Sterne's method.
+
+**For confidence level 99%:**
+
+**Lee county -> Sample size = 150, infected = 30, Sterne's prevalence = 0.200 = 20%**
+
+**Chambers county -> Sample size = 30, infected = 8, Sterne's prevalence = 0.267 = 27%**
+
+**Russell county -> Sample size = 96, infected = 3, Sterne's prevalence = 0.031 = 3%**
+
+
+
+B) Compare prevalence using Fisher's exact test.
+
+**Lee county ->  N = 30   infected = 8   non-inf. = 22     Prev.% = 26.7**
+
+**Chambers county ->  N = 150  infected = 30    non-inf. = 120     Prev.% = 20.0**
+
+**Russell county ->  N = 96  infected =  3    non-inf. = 93     Prev.% = 3.1**
+
+**p-value: < 0.0001**
